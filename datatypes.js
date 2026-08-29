@@ -12,7 +12,7 @@ let islogged = false
 //boolean => true/false
 // null -> standalone value (lets say it is empty)
 // undefined => we havent given it some value yet
-//symbol => unique(mainly used in react)
+//symbol => unique(mainly used in react)IMP
 
 //object
 
