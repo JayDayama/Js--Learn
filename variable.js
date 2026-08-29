@@ -3,6 +3,7 @@ let accountEmail = "Jaydayama@gmail.com"
 var accountPassword = "0905"
 account_city = "Ahmedabad"
 let accountState
+accstar = "Jay"
 // accountid = 42 we cant change value of a const variable
 
 //we prefer let because var has no scope limits {} something declared here can be used outside too
