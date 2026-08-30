@@ -21,3 +21,9 @@ console.log(typeof undefined) //undefined
 const id = Symbol('123')
 const otherid = Symbol('123')
 console.log(id == otherid)
+
+const myFunction = function(){
+    console.log("Jay")
+}
+
+console.log(typeof myFunction)
