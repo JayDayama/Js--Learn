@@ -27,3 +27,17 @@ const myFunction = function(){
 }
 
 console.log(typeof myFunction)
+
+// Memories in Java Script
+
+// Stack(primitive)->copy  &  Heap(Non-Primitive)->only real copy || Refrence
+
+let userone = {
+    email : "jaydayma@com.com",
+    upi : "user@sbi"
+}
+
+let usertwo = userone
+usertwo.email = "Jaydayama0905@gmail.com"
+console.log(usertwo.email);
+console.log(userone.email);
