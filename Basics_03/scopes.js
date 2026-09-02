@@ -18,3 +18,32 @@ if(true){
 }
 
 console.log(a)
+
+function one(){
+    const username = "Jay"
+
+    function two(){
+        const website = "Github"
+        console.log(username)
+        //Child function can access everything of parent function
+        // but parent function cant do the same 
+    }
+    // console.log(website) -> wont work because we used website outside of its scope
+    //ishi line pe error mil gaya isliye niche wala call execute hua hi nhi
+
+    two() // -> yeh wala
+}
+
+one()
+
+
+console.log(addone(5))
+function addone(num){
+    return num+1
+}
+
+// console.log(addtwo(5))//throws error
+const addtwo = function(num){ // Hoisting ->we stored out function result in a variable
+    return num+2
+}
+console.log(addtwo(5))
