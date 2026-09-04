@@ -10,5 +10,7 @@
 //if we dont add ';' at last IFFE wont know where to stop
 ((name) => {
     console.log(`DATABASES IS HERE Mr.${name}`)
-})("Jay") //here we are directly making the function call instead of calling it form somewhere else
+})("Jay")
+//here we are directly making the function call instead of calling it form somewhere else
+
 // database()
