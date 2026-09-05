@@ -40,8 +40,8 @@ const arrow_func = () => {
 // const addtwo = (num1,num2) => (num1+num2)
 
 //Implicit return this function we just need to return num1+num2 we dont need to say actually that return num1+num2
-//Implicit means(here) i dont need to write return maine mann liya as it is just a one liner funtion 
-//{} in this curly brackets i ** NEED ** to use return 
+//Implicit means(here) i dont need to write return maine mann liya as it is just a one liner funtion
+//{} in this curly brackets i ** NEED ** to use return
 const addtwo = (num1,num2) => ({username : "Jay"})
 
 

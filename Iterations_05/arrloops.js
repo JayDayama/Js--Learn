@@ -54,3 +54,4 @@ for (const key in arr) {
 for (const [key,value] in map) {
     console.log(key , value) // doesnt work because map isnt iterateable
 }
+

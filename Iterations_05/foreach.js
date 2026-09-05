@@ -43,10 +43,10 @@ mycoding.forEach( (item) => {
     // console.log(item.languagename + ' -> ' + item.filename)
 } )
 
-const values = coding.forEach( (item) => {
-    console.log(item)
-    // the for each loop function will not alow us to return anything
-    return item // whatever we try wwe cant store this data to someplace
-} )
+// const values = coding.forEach( (item) => {
+//     console.log(item)
+//     // the for each loop function will not alow us to return anything
+//     return item // whatever we try wwe cant store this data to someplace
+// } )
 
-console.log(values) // -> undefined
+// console.log(values) // -> undefined

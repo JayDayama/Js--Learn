@@ -1,7 +1,6 @@
-//Singleton
-// Object.create --> Constructor
-
 // Object Literals
+
+
 const mysym = Symbol("Key1")
 const User = {
     name : "Jay",

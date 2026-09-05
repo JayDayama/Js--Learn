@@ -16,5 +16,5 @@ else{
 }
 
 const balance = 10000
-if(balance > 5000)  console.log(`Your Banalnce is greater than 5000`),
-    console.log("wow your current balance is ${balance}");
+// if(balance > 5000)  console.log(`Your Banalnce is greater than 5000`),
+//     console.log("wow your current balance is ${balance}");
