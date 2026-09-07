@@ -90,3 +90,104 @@ setInterval(function () {
 }, 1000);
 
 ```
+
+
+## Project 4
+
+```javascript
+let randomnum = Math.floor(Math.random() * 100 + 1);
+
+const submit = document.querySelector('#subt');
+const Input_num = document.querySelector('#guessField');
+const guessSlot = document.querySelector('.guesses');
+const remaining_guesses = document.querySelector('.lastResult');
+const lowOrhigh = document.querySelector('.lowOrHi');
+const startover = document.querySelector('.resultParas');
+
+const p = document.createElement('p');
+
+// let prevguess = [];
+let numguess = 1;
+let playGame = true;
+
+submit.addEventListener('click', function (e) {
+  if (playGame) {
+    // this ensures when the guessField is disabled one accidentally doesnt press the submit guess button
+    e.preventDefault();
+    const guess = parseInt(Input_num.value);
+    console.log(guess);
+    validateguess(guess);
+  }
+});
+
+function validateguess(guess) {
+  //Checks if the guess is Valid or not
+  if (isNaN(guess)) {
+    alert(`Please Enter a Valid Number`);
+  } else if (guess < 1) {
+    alert(`Please Enter a Higher Number`);
+  } else if (guess > 100) {
+    alert(`Please Enter a Smaller Number`);
+  } else {
+    // prevguess.push(guess);
+    displayguess(guess);
+    //as soon as we see a number we say increase our guess and clear the box for new number hence the displayguess is before the check guess
+    checkguess(guess);
+  }
+}
+
+function checkguess(guess) {
+  //checks where my guess lies
+  if (guess === randomnum) {
+    displaymessage(`You Guessed the right Number`);
+    endthisgame();
+  } else if (numguess === 11) {
+    displaymessage(`Game Over. The Number was ${randomnum}`);
+    endthisgame();
+  } else if (guess < randomnum) {
+    displaymessage(`Your Guess is Lower`);
+  } else if (guess > randomnum) {
+    displaymessage(`Your Guess is Higher`);
+  }
+}
+
+function displayguess(guess) {
+  //first of all i need to empty the box for next input
+  Input_num.value = '';
+  guessSlot.innerHTML += `${guess}  `;
+  numguess++;
+  remaining_guesses.innerHTML = `${11 - numguess}`;
+}
+
+function displaymessage(message) {
+  lowOrhigh.innerHTML = `<h2>${message}</h2>`;
+}
+
+function endthisgame() {
+  Input_num.value = '';
+  // we need to stop user from entering any more numbers
+  Input_num.setAttribute('disabled', '');
+  p.classList.add('button');
+  p.innerHTML = '<h2 id = "newgame">Start New Game</h2>';
+  startover.appendChild(p);
+  playGame = false;
+  newgame();
+}
+
+function newgame() {
+  const newgamebutton = document.querySelector('#newgame');
+  newgamebutton.addEventListener('click', function (e) {
+    randomnum = Math.floor(Math.random() * 100 + 1);
+    numguess = 1;
+    guessSlot.innerHTML = '';
+    lowOrhigh.innerHTML = '';
+    remaining_guesses.innerHTML = `${11 - numguess}`;
+    Input_num.removeAttribute('disabled');
+    startover.removeChild(p);
+    playGame = true;
+  });
+}
+
+
+
+```
