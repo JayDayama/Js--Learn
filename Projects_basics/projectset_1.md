@@ -37,3 +37,42 @@ buttons.forEach((button) => {
 
 
 ```
+## Project 2
+
+```javascript
+const form = document.querySelector('form');
+
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+
+  const height = parseInt(document.querySelector('#height').value);
+  const weight = parseInt(document.querySelector('#weight').value);
+  const result = document.querySelector('#results');
+
+  //Check if height and weight are Valid
+  if (height == '' || height <= 0 || isNaN(height)) {
+    result.innerHTML = `Enter a Valid Height ${height}`;
+    result.style.color = 'red';
+  } else if (weight == '' || weight <= 0 || isNaN(weight)) {
+    result.innerHTML = `Enter a Valid Weight ${weight}`;
+    result.style.color = 'red';
+  } else {
+    const Bmi = (weight / ((height * height) / 10000)).toFixed(2);
+    if (Bmi < 18.6) {
+      result.innerHTML = `<span>${Bmi} -> you are Under Weight</span>`;
+      result.style.color = 'orange';
+      result.style.fontSize = '20px';
+    } else if (Bmi > 18.6 && Bmi < 24.9) {
+      result.innerHTML = `<span>${Bmi} -> you are in the Normal range</span>`;
+      result.style.color = 'lightblue';
+      result.style.fontSize = '22px';
+    } else if (Bmi > 24.9) {
+      result.innerHTML = `<span>${Bmi} -> you are Over Weight</span>`;
+      result.style.color = 'orange';
+      result.style.fontSize = '20px';
+    }
+  }
+});
+
+
+```
