@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+</head>
+<body style = "background-color: #212121; color : #fff">
+    <ul class="language">
+        <li>JavaScript</li>
+    </ul>
+</body>
+<script>
+    function addlanguage (langName){
+        const li_ele = document.createElement('li');
+        li_ele.innerHTML = `${langName}`;
+        document.querySelector('.language').appendChild(li_ele);
+        //Too costly we need to traverse whole tree everytime we need to append an element
+    }
+    addlanguage("python");
+    addlanguage("C++");
+    addlanguage("Java");
+
+    function addoptilang (langName){
+        const li = document.createElement('li');
+        li.appendChild(document.createTextNode(langName))
+        document.querySelector('.language').appendChild(li);
+    }
+    addoptilang("golang");
+    addoptilang("typescript");
+
+    // EDIT Values:
+
+    const secondlang = document.querySelector("li:nth-child(2)");
+    console.log(secondlang);
+    //secondlang,innerHTML = "My New Language";
+    const newli = document.createElement('li');
+    newli.textContent = "My New Language"
+    secondlang.replaceWith(newli);
+
+    const firstlang = document.querySelector("li:first-child");
+    firstlang.outerHTML = '<li>TypeScript</li>'
+
+    // Remove :
+    const lastlang = document.querySelector('li:last-child');
+    lastlang.remove()
+</script>
+</html>
