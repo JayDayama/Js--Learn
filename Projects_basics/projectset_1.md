@@ -1,7 +1,7 @@
 # Projects related to DOM
 
 ## Project Link
-[click here](https://stackblitz.com/edit/dom-project-chaiaurcode-peonsecx?file=4-GuessTheNumber%2Findex.html,4-GuessTheNumber%2Fguessnumgame.js)
+[click here](https://stackblitz.com/edit/dom-project-chaiaurcode-dujwlvah)
 
 # Solution Code
 
