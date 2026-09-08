@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Events</title>
+</head>
+<body style="background-color: #414141; color: aliceblue;">
+    <h2>Amazing image</h2>
+    <div >
+        <ul id="images">
+            <li><img width="200px" id="photoshop" src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="photoshop"></li>
+            <li><img width="200px" id="japan" src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="river" src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="owl" src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <!-- *** this is not at all feasable approach try to avoid it *** -->
+            <!-- <li><img width="200px" id="owl" src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="" onclick = "alert('OWL')"></li> -->
+            <li><img width="200px" id="prayer" src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><a style="color: aliceblue;" href="https://google.com" id="google">Google</a></li>
+        </ul>
+   </div>
+</body>
+<script>
+    // this aprroach is alright but we have access to less number of features
+    // document.getElementById('owl').onclick = function (){
+    //     alert('OWL Clicked')
+    // }
+
+    // document.getElementById('owl').addEventListener('click', function(e){
+    //     // alert('You Clicked On OWL')
+    //     console.log(e)
+    // }, false)
+    // this false is by default its ok if we dont add it
+
+    // some Important Events :-
+    // type, timestamp, defaultPrevented, target, toElement, source, currentTarget,
+    // clientX, clientY, screenX, screenY
+    // altkey, ctrlkey, shiftkey, keycode
+    
+    // Event propogation follows bubbling -> hence as owl is a subpart of images but the first message we get is owl clicked one as it was listed below the ul function one
+    // document.getElementById('images').addEventListener('click', function(e){
+    //     console.log('You Clicked inside the ul')
+    // }, false)
+    // document.getElementById('owl').addEventListener('click', function(e){
+    //     console.log('You clicked on OWL')
+    //     e.stopPropagation(); // stops bubbling
+    // }, false)
+    // // when false is given or not it follows bubbling
+    // // whereas while we pass true it follows capturing ->hence the upper one is executed first upper one means the one in **body**
+
+    // document.getElementById('google').addEventListener('click' , function(e){
+    //     e.preventDefault();
+    //     e.stopPropagation();
+    //     console.log("you clicked on google");
+    // })
+
+    document.querySelector('#images').addEventListener('click', function(e){
+        // console.log(e.target); in the end we need to delete the whole li
+        // console.log(e.target.parentNode);
+        let removeIt = e.target.parentNode;
+        console.log(e.target.tagName)
+        if(e.target.tagName === 'IMG'){
+            console.log(e.target.id)
+            removeIt.remove();
+        }
+        // removeIt.remove(); some glitches like when we click at the end it delets the entire ul
+    })
+
+    // removeIt.parentNode.removeChild(removeIt)
+    // we went to the parent (ul) told him to access the child (li) and then delete it
+</script>
+</html>

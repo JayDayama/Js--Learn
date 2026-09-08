@@ -190,3 +190,68 @@ function newgame() {
 
 
 ```
+
+
+
+
+## Project 5
+
+```javascript
+const insert = document.getElementById('insert');
+
+window.addEventListener('keydown', (e) => {
+  insert.innerHTML = `
+    <div class = 'color'>
+      <table>
+        <tr>
+          <th>Key</th>
+          <th>KeyCode</th>
+          <th>Code</th>
+        </tr>
+        <tr>
+          <td>${e.key === ' ' ? 'Space' : e.key}</td>
+          <td>${e.keyCode}</td>
+          <td>${e.code}</td>
+        </tr>
+      </table>
+    </div>
+  `;
+});
+
+
+```
+
+
+## Project 6
+
+```javascript
+// Generate a random color
+const randomColor = function () {
+  const hex = '0123456789ABCDEF';
+  let Color = '#'; //color will always start from # only
+  for (let i = 0; i < 6; i++) {
+    Color += hex[Math.floor(Math.random() * 16)];
+  }
+  return Color;
+};
+
+let intervalId;
+const startChangingcolor = function () {
+  if (!intervalId) {
+    intervalId = setInterval(ChangeBgColor, 1000);
+  }
+
+  function ChangeBgColor() {
+    document.body.style.backgroundColor = randomColor();
+  }
+};
+const stopChangingcolor = function () {
+  clearInterval(intervalId);
+  intervalId = null; // just to free up some space
+};
+
+document.querySelector('#start').addEventListener('click', startChangingcolor);
+document.querySelector('#stop').addEventListener('click', stopChangingcolor);
+
+
+```

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events and Projects</title>
+</head>
+<body>
+    <h1>Jay Dayama</h1>
+    <button id="stop">Stop</button>
+</body>
+<script>
+    const myName = function(){
+        console.log("Jay Dayama")
+    }
+    const changehead = function(){
+        document.querySelector('h1').innerHTML = "Learning JavaScript"
+    }
+
+    const stopChange = setTimeout(changehead,2000);
+
+    document.querySelector('#stop').addEventListener('click',function(){
+        alert('You Stoped the Heading Change')
+        clearTimeout(stopChange);
+    })
+
+
+    // clearTimeout(stopChange) // stops the timeout related to stopChange
+    // setTimeout(myName,2000) // 2000 is in mili sec => 2 sec
+</script>
+</html>
