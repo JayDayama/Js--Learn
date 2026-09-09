@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .card {
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        transition: 0.3s;
+    }
+</style>
+<body style = "background-color: #212121;">
+
+
+
+    <!-- 0	UNSENT	Client has been created. open() not called yet.
+    1	OPENED	open() has been called.
+    2	HEADERS_RECEIVED	send() has been called, and headers and status are available.
+    3	LOADING	Downloading; responseText holds partial data.
+    4	DONE	The operation is complete. -->
+</body>
+<script>
+    const requestURL = 'https://api.github.com/users/yash-dayama';
+    const newdiv = document.createElement('div');
+    newdiv.className = 'card';
+    newdiv.style.color = 'Ivory';
+    document.body.appendChild(newdiv);
+    const image = document.createElement('img');
+    // newdiv.appendChild(image);
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET',requestURL);
+    xhr.onreadystatechange = function(){
+            if(xhr.readyState === 4){
+            const data = JSON.parse(this.responseText);
+            image.src = data.avatar_url;
+            newdiv.appendChild(image);
+            const Name = document.createElement('h2');
+            Name.innerHTML = `Name : ${data.name}`
+            const followerscnt = document.createElement('h3');
+            followerscnt.innerHTML = `Total Followers : ${data.followers}`;
+            newdiv.appendChild(Name);
+            newdiv.appendChild(followerscnt);
+        }
+    }
+    xhr.send();
+
+    //to create a fresh object
+    // const requestURL = 'https://api.github.com/users/hiteshchoudhary'
+    // // const requestURL = 'https://randomuser.me/api/'
+
+    // const xhr = new XMLHttpRequest();
+    // xhr.open('GET',requestURL);
+    // xhr.onreadystatechange = function(){
+    //     console.log(xhr.readyState);
+        // if(xhr.readyState === 4){
+        //     const data = JSON.parse(this.responseText);
+        //     console.log(typeof data);
+        //     console.log(data.followers)
+
+        //     // console.log(responseText);
+        //     console.log(this.responseText);//we need this function's responseText in particular
+    //     }
+    // }
+    // xhr.send(); // this actually makes the call
+</script>
+</html>
