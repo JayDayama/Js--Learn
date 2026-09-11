@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React</title>
+</head>
+<body>
+    <button>Button Clicked</button>
+</body>
+<script>
+    class React {
+        constructor(){
+            this.library = "React"
+            this.server = "https://localhost:3000"
+
+            //requirement :
+            // document.querySelector('button')
+            // .addEventListener('click',this.handleclick)
+            //react class ke handleclick pe jaoo
+            document.querySelector('button')
+            .addEventListener('click',this.handleclick.bind(this))
+            // go to this function and let it have access of our costructor variables too bind all these and give it to him
+        }
+        handleclick(){
+            console.log("button clicked");
+            console.log(this)
+            console.log(this.server)
+        }
+    }
+
+    const myapp = new React()
+</script>
+</html>
