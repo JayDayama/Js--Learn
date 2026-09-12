@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Closure</title>
+</head>
+<body style="background-color: #313131;">
+    <button id="orange">Orange</button>
+    <button id="green">green</button>
+</body>
+<script>
+    // function init() {
+    //     let name = "Mozilla";
+    //     function displayName() {
+    //         console.log(name);
+    //     }
+    //     displayName();
+    // }
+    // init();
+
+    // function outer(){
+    //     let username = "jay"
+    //     function inner(){
+    //         console.log("Inner : ",username); // can access -> lexical scoping
+    //     }
+    //     inner()
+    // }
+    // outer()
+    // console.log("too much Outer" , username) -> cant access this
+
+    //Closure is the returning of function doesnt just returns the particular function but its entire lexical scope
+
+    function makeFunc() {
+        const name = "Mozilla";
+        function displayName() {
+            console.log(name);
+        }
+        return displayName;
+        // we are passing the refrence here but that means that outer function was executed completely then its scope should be finished
+        // but what happens is not only the displayname function is returned but the entire scope of outer function if it exists is also given
+        // i.e : the entire lexicalscope/memory of the outer function is also passed
+    }
+    const myFunc = makeFunc();
+    myFunc();
+</script>
+<script>
+    // document.getElementById('orange').onclick = function(){
+    //     document.body.style.backgroundColor = 'orange'
+    // }
+    // document.getElementById('green').onclick = function(){
+        // document.body.style.backgroundColor = 'green'
+    // }
+
+    function clickHandler(color){
+        // document.body.style.backgroundColor = `${color}` -> we are directly executing it downside before even getting clicked
+
+        return function(){
+            document.body.style.backgroundColor = `${color}`
+        }
+    }
+
+    //click handler is returning us some function hence refrence is passed to onclick and not yet executed 
+    document.getElementById('orange').onclick = clickHandler('orange');
+    document.getElementById('green').onclick = clickHandler('green');
+</script>
+</html>
